@@ -298,7 +298,7 @@
 </head>
 <body>
     <div class="logo-text">ScoopDreams!</div>
-    <button class="home-button">Home</button>
+    <a href="Homepage.html" class="home-button">Home</a>
 
     <div class="main-container" id="main-container">
         <!-- Left Panel for text -->
@@ -462,6 +462,22 @@
                 console.log('Sign Up attempt:', { name, email, password, reEnterPassword });
             });
 
+            // Function to get query parameters from the URL
+            const getQueryParams = () => {
+                const params = {};
+                window.location.search.substring(1).split('&').forEach(param => {
+                    const [key, value] = param.split('=');
+                    params[key] = value;
+                });
+                return params;
+            };
+
+            // Get query params on page load
+            const urlParams = getQueryParams();
+            if (urlParams.form === 'signup') {
+                toggleForm(false);
+            }
+            
             // Initialize floating labels
             setupFloatingLabels();
         });

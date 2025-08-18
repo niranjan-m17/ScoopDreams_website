@@ -380,82 +380,6 @@
       opacity: 0.7;
       z-index: 10;
     }
-
-    /* Styles for the Login/Signup page containers */
-    .auth-page {
-      display: none;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      justify-content: center;
-      align-items: center;
-      z-index: 9;
-      background-color: #f3f4f6; /* A new background color for the auth pages */
-    }
-
-    /* Styles from the new Login/Signup page */
-    .container-login {
-        width: 100%;
-        max-width: 480px;
-        background: white;
-        padding: 2.5rem;
-        border-radius: 1.5rem;
-        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-        transition: all 0.3s ease-in-out;
-    }
-    .input-group {
-        margin-bottom: 1.5rem;
-    }
-    .input-group label {
-        display: block;
-        color: #4b5563;
-        font-weight: 500;
-        margin-bottom: 0.5rem;
-    }
-    .input-group input {
-        width: 100%;
-        padding: 0.75rem 1rem;
-        border: 1px solid #d1d5db;
-        border-radius: 0.75rem;
-        font-size: 1rem;
-        transition: border-color 0.2s;
-    }
-    .input-group input:focus {
-        outline: none;
-        border-color: #3b82f6;
-        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
-    }
-    .btn-primary {
-        width: 100%;
-        padding: 0.75rem 1rem;
-        background-color: #2563eb;
-        color: white;
-        font-weight: 600;
-        border-radius: 0.75rem;
-        border: none;
-        cursor: pointer;
-        transition: background-color 0.2s, transform 0.2s;
-    }
-    .btn-primary:hover {
-        background-color: #1d4ed8;
-        transform: translateY(-2px);
-    }
-    .link-text {
-        text-align: center;
-        margin-top: 1.5rem;
-        color: #6b7280;
-    }
-    .link-text a {
-        color: #2563eb;
-        font-weight: 600;
-        text-decoration: none;
-        transition: color 0.2s;
-    }
-    .link-text a:hover {
-        color: #1d4ed8;
-    }
   </style>
 </head>
 <body id="page-body">
@@ -463,8 +387,9 @@
     <div class="brand-name">Welcome to<br><span>ScoopDreams!</span></div>
     <div class="nav-buttons">
       <button id="about-btn" class="nav-button nav-text-link">About</button>
-      <button id="login-btn" class="nav-button">Login</button>
-      <button id="signup-btn" class="nav-button">Signup</button>
+      <!-- Now using anchor tags to link to the new login/signup page -->
+      <a href="Login%20&%20Sign-up.html?form=login" class="nav-button">Login</a>
+      <a href="Login%20&%20Sign-up.html?form=signup" class="nav-button">Signup</a>
     </div>
   </div>
   
@@ -513,54 +438,6 @@
     </div>
   </div>
   
-  <!-- Login Page Content -->
-  <div id="login-page" class="auth-page">
-    <div class="container-login">
-      <div class="flex justify-end">
-        <button id="back-to-home-login" class="nav-text-link text-blue-500 font-bold">Back to Home</button>
-      </div>
-      <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Login to Your Account</h2>
-      <form id="loginForm">
-          <div class="input-group">
-              <label for="login-email">Email Address</label>
-              <input type="email" id="login-email" name="email" placeholder="you@example.com" required>
-          </div>
-          <div class="input-group">
-              <label for="login-password">Password</label>
-              <input type="password" id="login-password" name="password" placeholder="••••••••" required>
-          </div>
-          <button type="submit" class="btn-primary">Login</button>
-      </form>
-      <p class="link-text">
-          Don't have an account? <a href="#" id="show-signup-page-from-login">Sign up</a>
-      </p>
-    </div>
-  </div>
-
-  <!-- Sign Up Page Content -->
-  <div id="signup-page" class="auth-page">
-    <div class="container-login">
-      <div class="flex justify-end">
-        <button id="back-to-home-signup" class="nav-text-link text-blue-500 font-bold">Back to Home</button>
-      </div>
-      <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Create a New Account</h2>
-      <form id="signupForm">
-          <div class="input-group">
-              <label for="signup-email">Email Address</label>
-              <input type="email" id="signup-email" name="email" placeholder="you@example.com" required>
-          </div>
-          <div class="input-group">
-              <label for="signup-password">Password</label>
-              <input type="password" id="signup-password" name="password" placeholder="••••••••" required>
-          </div>
-          <button type="submit" class="btn-primary">Sign Up</button>
-      </form>
-      <p class="link-text">
-          Already have an account? <a href="#" id="show-login-page-from-signup">Log in</a>
-      </p>
-    </div>
-  </div>
-
   <div class="footer">© 2025 | Created by NIRANJAN M</div>
 
   <script>
@@ -663,60 +540,9 @@
       });
     });
 
-    // --- Page Navigation Logic ---
-    const mainContent = document.getElementById('main-content');
-    const loginPage = document.getElementById('login-page');
-    const signupPage = document.getElementById('signup-page');
-    const loginBtn = document.getElementById('login-btn');
-    const signupBtn = document.getElementById('signup-btn');
-    const showSignupPageFromLogin = document.getElementById('show-signup-page-from-login');
-    const showLoginPageFromSignup = document.getElementById('show-login-page-from-signup');
-    const backToHomeLogin = document.getElementById('back-to-home-login');
-    const backToHomeSignup = document.getElementById('back-to-home-signup');
-
-    const navigateTo = (page) => {
-      mainContent.style.display = 'none';
-      loginPage.style.display = 'none';
-      signupPage.style.display = 'none';
-
-      if (page === 'login') {
-        loginPage.style.display = 'flex';
-        body.style.backgroundColor = '#f3f4f6';
-      } else if (page === 'signup') {
-        signupPage.style.display = 'flex';
-        body.style.backgroundColor = '#f3f4f6';
-      } else if (page === 'main') {
-        mainContent.style.display = 'block';
-        updateProduct(0); // Reset to the first product on home page
-        productNames.forEach(el => el.classList.remove('glassy-active'));
-        productNames[0].classList.add('glassy-active');
-      }
-    };
-
-    loginBtn.addEventListener('click', () => navigateTo('login'));
-    signupBtn.addEventListener('click', () => navigateTo('signup'));
-    showSignupPageFromLogin.addEventListener('click', (e) => { e.preventDefault(); navigateTo('signup'); });
-    showLoginPageFromSignup.addEventListener('click', (e) => { e.preventDefault(); navigateTo('login'); });
-    backToHomeLogin.addEventListener('click', () => navigateTo('main'));
-    backToHomeSignup.addEventListener('click', () => navigateTo('main'));
-
-    // Form submission logic
-    document.getElementById('loginForm').addEventListener('submit', (e) => {
-        e.preventDefault();
-        const email = document.getElementById('login-email').value;
-        const password = document.getElementById('login-password').value;
-        console.log('Login attempt:', { email, password });
-    });
-
-    document.getElementById('signupForm').addEventListener('submit', (e) => {
-        e.preventDefault();
-        const email = document.getElementById('signup-email').value;
-        const password = document.getElementById('signup-password').value;
-        console.log('Sign Up attempt:', { email, password });
-    });
-
     window.onload = () => {
-      navigateTo('main'); // Start on the main page
+      updateProduct(0); // Start on the first product
+      productNames[0].classList.add('glassy-active');
     };
   </script>
 </body>

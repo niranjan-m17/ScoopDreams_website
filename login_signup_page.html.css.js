@@ -12,7 +12,8 @@
     <style>
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #F9F7F0; /* Cream background */
+            /* Changed to a linear gradient blending cream and coffee colors */
+            background: linear-gradient(135deg, #F5F5DC, #6F4E37); 
             display: flex;
             justify-content: center;
             align-items: center;
@@ -290,8 +291,10 @@
             bottom: 1rem;
             left: 50%;
             transform: translateX(-50%);
-            color: #6b7280;
-            font-size: 0.875rem;
+            /* Updated color to be a much lighter shade for visibility */
+            color: #d1d5db; 
+            /* Reduced font size for a more subtle look */
+            font-size: 0.625rem;
             text-align: center;
         }
     </style>
